@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 function LoadingThreeDotsPulse() {
   const dotVariants = {
@@ -10,7 +10,7 @@ function LoadingThreeDotsPulse() {
         duration: 1.2,
         repeat: Infinity,
         ease: "easeInOut",
-      },
+      } as any,
     },
   };
 

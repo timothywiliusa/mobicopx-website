@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import SectionHeading from "./section-header";
 import { useSectionInView } from "@/lib/hooks";
 import Link from "next/link";
@@ -19,72 +19,27 @@ export default function About() {
       transition={{ delay: 0.175 }}
       id="about"
     >
-      <SectionHeading>My Story</SectionHeading>
+      <SectionHeading>About Us</SectionHeading>
       <div className="flex flex-col-reverse lg:flex-row gap-8 ">
         <div className="flex flex-col gap-4 text-base">
           <p className="">
-            Back in 2019, I decided to try my hand at creating a React site for
-            a{" "}
-            <Link
-              href="https://www.hazadapt.com"
-              target="_blank"
-              className="inlineLink"
-            >
-              start-up
-            </Link>{" "}
-            with a couple of college friends and tumbled head first into the
-            rabbit hole of coding and web development. Fast-forward to today,
-            and I’ve had the privilege of building software for a{" "}
-            <Link
-              href="https://calvin-church.org"
-              target="_blank"
-              className="inlineLink"
-            >
-              church
-            </Link>
-            , an{" "}
-            <Link
-              href="https://goldeneaglestaffingservices.com"
-              target="_blank"
-              className="inlineLink"
-            >
-              outsourcing company
-            </Link>
-            , a{" "}
-            <Link
-              href="https://trisakti.co.id"
-              target="_blank"
-              className="inlineLink"
-            >
-              huge corporation
-            </Link>
-            , and a{" "}
-            <Link
-              href="https://quantum-vox.com"
-              target="_blank"
-              className="inlineLink"
-            >
-              digital marketing agency
-            </Link>
-            .
+          At Mobicop, we are pioneers in intelligent AI solutions, revolutionizing how organizations approach surveillance, traffic management, and document processing. Founded with a vision to create safer, smarter cities, we harness the power of cutting-edge artificial intelligence to solve real-world challenges in security and compliance.
           </p>
           <p className="">
-            As a software engineer, I enjoy bridging the gap between engineering
-            and design — combining my technical knowledge with my keen eye for
-            design to create a beautiful product. My goal is to always build
-            applications that are scalable and efficient under the hood while
-            providing engaging, pixel-perfect user experiences.
+         MobicopX offers a comprehensive suite of AI-driven technologies that empowers law enforcement agencies, government institutions, and enterprises to operate with unprecedented efficiency and accuracy. From automated license plate recognition and traffic violation detection to advanced facial recognition and document verification, our solutions deliver actionable insights in real time.
           </p>
           <p className="">
-            At the end of the day, my primary goal is to create something
-            beautiful with people that bring out the best in me. When I'm not in
-            front of a computer screen, I'm at the beach surfing, traveling,
-            petting dogs, learning a new song on my piano, or simply making
-            moves at your local chess tournament.
+          We understand that safety and security are paramount. That's why every solution we develop is built on a foundation of robust data protection standards, ensuring compliance while maintaining the highest levels of accuracy and reliability. Our systems seamlessly integrate with existing infrastructure, providing scalable solutions that grow with your needs.
+          </p>
+          <p className="">
+          With Mobicop, organizations gain more than just technology—they gain a trusted partner committed to innovation, precision, and excellence. Our team of AI experts and engineers work tirelessly to stay ahead of emerging challenges, continuously enhancing our platforms to meet the evolving demands of modern surveillance and traffic management.
+          </p>
+          <p className="">
+          Join us in building a safer, more efficient future. Experience the transformative power of intelligent AI with Mobicop—where technology meets trust, and innovation drives impact.
           </p>
         </div>
 
-        <Image
+        {/* <Image
           src="https://utfs.io/a/9upxg1g8p4/9pigm30TxnkIqnV3F5IIk0gxwCfvrlJiYNSp6quLdDeaF51K"
           alt="Tim"
           width="1000"
@@ -104,7 +59,7 @@ export default function About() {
             priority={true}
             className="bg-transparent w-full rounded-2xl object-cover shadow-2xl lg:hidden"
           />
-        </div>
+        </div> */}
       </div>
 
       {/* add photo here  */}

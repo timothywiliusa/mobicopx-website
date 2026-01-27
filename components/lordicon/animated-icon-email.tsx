@@ -24,7 +24,7 @@ export default function AnimatedEmail() {
         src="https://cdn.lordicon.com/hqcpolbo.json"
         trigger="hover"
         delay={2000}
-        colors={{ primary: "#e53935", secondary: "#ffffff" }}
+        colors={{ primary: "#135DD8", secondary: "#ffffff" }}
         size={25}
         stroke="bold"
         target=".emailHover"

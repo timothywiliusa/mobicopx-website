@@ -25,12 +25,12 @@ export default function ThemeContextProvider({
       setTheme("dark");
       window.localStorage.setItem("theme", "dark");
       document.documentElement.classList.add("dark");
-      console.log("togle dark")
+      console.log("togle dark");
     } else {
       setTheme("light");
       window.localStorage.setItem("theme", "light");
       document.documentElement.classList.remove("dark");
-      console.log("togle light")
+      console.log("togle light");
     }
   };
 
@@ -49,7 +49,7 @@ export default function ThemeContextProvider({
     } else if (window.matchMedia("(prefers-color-scheme: light)").matches) {
       setTheme("dark");
       document.documentElement.classList.add("dark");
-    } 
+    }
   }, []);
 
   return (

@@ -5,7 +5,7 @@ import SectionHeading from "./section-header";
 import { projectsData } from "@/lib/data";
 import { useSectionInView } from "@/lib/hooks";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "motion/react";
 import Link from "next/link";
 
 export default function Project({
@@ -38,23 +38,25 @@ export default function Project({
           className='
       
       bg-gray-100 max-w-[42rem] border border-black/5 rounded-lg overflow-hidden relative
-      lg:pr-8 lg:h-[20rem] 
+      
       hover:bg-gray-200 transition 
       
-      lg:group-even:pl-8 
+    
       
       dark:text-white dark:bg-white/10 dark:hover:bg-white/20">'
         >
+          {/*  lg:h-[20rem]   lg:group-even:pl-8 lg:pr-8 */}
           <div
             className="pt-4 pb-7 px-5 
         
-        lg:pl-10 lg:pr-2 lg:pt-10 lg:max-w-[50%] lg:group-even:ml-[18rem]
+        lg:pl-10 lg:pr-2 lg:pt-10 
         
         flex flex-col h-full 
         
        "
           >
-            <h3 className="text-xl fira-code-regular text-[#ff0040] inline">
+            {/* lg:max-w-[50%] lg:group-even:ml-[18rem] */}
+            <h3 className="text-xl fira-code-regular text-tertiary inline">
               {title}
             </h3>
 
@@ -65,12 +67,13 @@ export default function Project({
               className="
           
           flex flex-wrap mt-4 gap-2 
-          lg:mt-auto"
+          "
             >
+              {/* lg:mt-auto */}
               {tags.map((tag, index) => (
                 <li
                   key={index}
-                  className="bg-black/[0.7] px-3 py-1 text-[0.7rem] uppercase tracking-wider text-white rounded-full dark:text-white/70 hover:bg-[#ff0040] transition-all"
+                  className="bg-black/[0.7] px-3 py-1 text-[0.7rem] uppercase tracking-wider text-white rounded-full dark:text-white/70 hover:bg-tertiary transition-all"
                 >
                   {tag}
                 </li>
@@ -78,7 +81,7 @@ export default function Project({
             </ul>
           </div>
 
-          <Image
+          {/* <Image
             src={imageUrl}
             alt={title}
             quality={95}
@@ -98,7 +101,7 @@ export default function Project({
             group-even:group-hover:rotate-2
             group-even:right-[initial] 
             group-even:-left-40"
-          />
+          /> */}
         </div>
       </Link>
     </motion.section>

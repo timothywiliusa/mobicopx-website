@@ -15,6 +15,11 @@ module.exports = {
       '2xl': '1536px'
     },
     extend: {
+      colors: {
+        'primary': '#0E4399',
+        'secondary': '#135DD8',
+        'tertiary': '#3080FF',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':

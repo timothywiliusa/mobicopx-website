@@ -7,7 +7,7 @@ import {
   MotionValue,
   useMotionValue,
   useTransform,
-} from "framer-motion";
+} from "motion/react";
 import { useLayoutEffect, useRef, useState } from "react";
 
 export default function ImageRevealSlider({

@@ -1,11 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap");
 
 html {
   --scrollbarBG: #09090b;
-  --thumbBG: #ff0040;
+  --thumbBG: #0E4399;
 
   scrollbar-width: thin;
   scrollbar-color: var(--thumbBG) var(--scrollbarBG);
@@ -29,7 +29,7 @@ html {
 /* Dark mode scrollbar */
 /* :is(.dark) {
   --scrollbarBG: #09090b;
-  --thumbBG: #ff0040;
+  --thumbBG: #0040ff;
 } */
 
 .borderBlack {
@@ -38,8 +38,8 @@ html {
 
 .inlineLink {
   @apply dark:sm:text-white 
-  dark:hover:text-[#ff0040]
-  text-[#ff0040] 
+  dark:hover:text-[#0040ff]
+  text-[#0040ff] 
   hover:underline;
 }
 

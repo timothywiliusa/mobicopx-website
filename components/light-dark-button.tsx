@@ -8,7 +8,7 @@ import {
   Transition,
   useMotionTemplate,
   useMotionValue,
-} from "framer-motion";
+} from "motion/react";
 
 import dynamic from "next/dynamic";
 const AnimatedLamp = dynamic(() => import("./lordicon/animated-icon-lamp"), {
@@ -65,7 +65,7 @@ export default function LightDarkButton() {
   return (
     <>
       <button
-        className="fixed bottom-5 right-5 text-white bg-slate-800 w-[3rem] h-[3rem] bg-opacity-80 backdrop-blur-[0.5rem] border border-white border-opacity-40 shadow-2xl rounded-full flex items-center justify-center hover:scale-[1.15] active:scale-105 transition-all dark:text-yellow-200 dark:bg-red-800 dark:hover:bg-[#ff0040] dark:bg-opacity-75 dark:hover:text-yellow-100"
+        className="fixed bottom-5 right-5 text-white bg-slate-800 w-[3rem] h-[3rem] bg-opacity-80 backdrop-blur-[0.5rem] border border-white border-opacity-40 shadow-2xl rounded-full flex items-center justify-center hover:scale-[1.15] active:scale-105 transition-all dark:text-yellow-200 dark:bg-blue-800 dark:hover:bg-[#0040ff] dark:bg-opacity-75 dark:hover:text-yellow-100"
         onClick={handleClick}
         disabled={isDisabled}
       >
@@ -74,7 +74,7 @@ export default function LightDarkButton() {
 
       {isAnimating && (
         <motion.div
-          className="fixed top-0 left-0 w-full h-full bg-[#ff0033] z-[10000000001] pointer-events-none"
+          className="fixed top-0 left-0 w-full h-full bg-[#0033ff] z-[10000000001] pointer-events-none"
           style={{ clipPath }}
         />
       )}

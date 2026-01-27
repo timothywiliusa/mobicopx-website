@@ -24,7 +24,7 @@ export default function AnimatedCall() {
         src="https://cdn.lordicon.com/fmlvamjp.json"
         trigger="hover"
         delay={2000}
-        colors={{ primary: "#e53935", secondary: "#ffffff" }}
+        colors={{ primary: "#135DD8", secondary: "#ffffff" }}
         size={25}
         target=".callHover"
         stroke="bold"

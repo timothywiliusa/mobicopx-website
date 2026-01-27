@@ -17,7 +17,7 @@ export const ActiveSectionContext = createContext<ActiveSectionContextType | nul
 export default function ActiveSectionContextProvider(
     {children}:{children: ReactNode}
 ){
-    const [activeSection, setActiveSection] = useState<SectionName>('Resume');
+    const [activeSection, setActiveSection] = useState<SectionName>('Home');
     const [timeOfLastClick, setTimeOfLastClick] = useState<number>(0);
 
 

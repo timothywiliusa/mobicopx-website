@@ -10,8 +10,8 @@ import ScrollProgress from "@/components/scroll-progress";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Timothy Wiliusa",
-  description: "full-stack web developer",
+  title: "MOBICOP-X",
+  description: "Traffic Management and Security Surveillance Solutions",
 };
 
 export default function RootLayout({

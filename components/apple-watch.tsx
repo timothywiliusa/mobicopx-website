@@ -5,7 +5,7 @@ import {
   MotionValue,
   useMotionValue,
   useTransform,
-} from "framer-motion";
+} from "motion/react";
 import {
   BsApple,
   BsCalendar,

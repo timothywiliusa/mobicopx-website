@@ -5,7 +5,6 @@ import SectionDivider from "@/components/section-divider";
 import About from "@/components/about";
 import Projects from "@/components/projects";
 import Skills from "@/components/skills";
-import Experience from "@/components/experience";
 import Contact from "@/components/contact";
 import {
   animate,
@@ -16,7 +15,7 @@ import {
   useMotionValueEvent,
   useSpring,
   useTransform,
-} from "framer-motion";
+} from "motion/react";
 import { useEffect, useState } from "react";
 import LightDarkButton from "@/components/light-dark-button";
 
@@ -59,7 +58,6 @@ export default function Home() {
         <Intro />
         <SectionDivider />
         <Projects />
-        <Experience />
         <About />
         <Skills />
         <Contact />
@@ -71,7 +69,7 @@ export default function Home() {
         animate={{ opacity: isLoaded ? 0 : 1 }}
       />
       <motion.div
-        className="fixed top-0 left-0 w-full h-full bg-[#ff0033] z-[10000000001] pointer-events-none"
+        className="fixed top-0 left-0 w-full h-full bg-[#0033ff] z-[10000000001] pointer-events-none"
         style={{ clipPath }}
       />
     </div>

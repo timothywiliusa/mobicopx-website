@@ -9,7 +9,7 @@ import {
   useMotionValueEvent,
   useSpring,
   useTransform,
-} from "framer-motion";
+} from "motion/react";
 import { useEffect, useState } from "react";
 
 function LoadingLineReveal() {
