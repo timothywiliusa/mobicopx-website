@@ -30,13 +30,13 @@ export const sendEmail = async (form: FormData) => {
   // Get all form fields
   const name = form.get("name");
   const companyName = form.get("companyName");
-  const industry = form.get("industry");
+  const industry = form.get("industry") || "Not provided";
   const email = form.get("email");
   const country = form.get("country") || "Not provided";
   const countryCode = form.get("countryCode");
   const phoneNumber = form.get("phoneNumber");
   const comments = form.get("comments") || "No comments provided";
-  
+
   // Get all interests (multiple values)
   const interests = form.getAll("interests");
 
@@ -51,11 +51,11 @@ export const sendEmail = async (form: FormData) => {
       error: "Invalid company name",
     };
   }
-  if (!validateString(industry as string, 100)) {
-    return {
-      error: "Invalid industry",
-    };
-  }
+  // if (!validateString(industry as string, 100)) {
+  //   return {
+  //     error: "Invalid industry",
+  //   };
+  // }
   if (!validateString(email as string, 100)) {
     return {
       error: "Invalid email",
@@ -81,8 +81,10 @@ export const sendEmail = async (form: FormData) => {
   const hostmail = "info@timothywiliusa.com";
   try {
     // Format interests for display
-    const interestsString = Array.isArray(interests) ? interests.join(", ") : "None selected";
-    
+    const interestsString = Array.isArray(interests)
+      ? interests.join(", ")
+      : "None selected";
+
     // Create HTML content for the email
     const htmlContent = `
       <div>
@@ -115,10 +117,11 @@ export const sendEmail = async (form: FormData) => {
     `;
 
     // Get primary interest for subject line (first one selected)
-    const primaryInterest = Array.isArray(interests) && interests.length > 0 
-      ? interests[0] 
-      : "General Inquiry";
-    
+    const primaryInterest =
+      Array.isArray(interests) && interests.length > 0
+        ? interests[0]
+        : "General Inquiry";
+
     // Send to admin
     data = await addDoc(collection(db, "mail"), {
       from: [hostmail],
@@ -132,42 +135,42 @@ export const sendEmail = async (form: FormData) => {
     });
 
     // Send confirmation to user
-  //   data = await addDoc(collection(db, "mail"), {
-  //     from: [hostmail],
-  //     to: email,
-  //     replyTo: hostmail,
-  //     message: {
-  //       subject: "Thank you for contacting MobiCopX Solutions",
-  //       text: `Thank you for your interest in MobiCopX Solutions. We have received your inquiry and will get back to you shortly.`,
-  //       html: `
-  //         <div>
-  //           <h2>Thank you for contacting MobiCopX Solutions</h2>
-  //           <p>We have received your inquiry about the following areas: ${interestsString}.</p>
-  //           <p>Our team will review your message and get back to you as soon as possible.</p>
-  //           <p>This is an automated confirmation.</p>
-  //         </div>
-  //       `,
-  //     },
-  //   });
-  // } catch (error: unknown) {
-  //   console.log("errors have happened");
-  //   return {
-  //     //data: null,
-  //     error: getErrorMessage(error),
-  //   };
-  // }
+    //   data = await addDoc(collection(db, "mail"), {
+    //     from: [hostmail],
+    //     to: email,
+    //     replyTo: hostmail,
+    //     message: {
+    //       subject: "Thank you for contacting MobiCopX Solutions",
+    //       text: `Thank you for your interest in MobiCopX Solutions. We have received your inquiry and will get back to you shortly.`,
+    //       html: `
+    //         <div>
+    //           <h2>Thank you for contacting MobiCopX Solutions</h2>
+    //           <p>We have received your inquiry about the following areas: ${interestsString}.</p>
+    //           <p>Our team will review your message and get back to you as soon as possible.</p>
+    //           <p>This is an automated confirmation.</p>
+    //         </div>
+    //       `,
+    //     },
+    //   });
+    // } catch (error: unknown) {
+    //   console.log("errors have happened");
+    //   return {
+    //     //data: null,
+    //     error: getErrorMessage(error),
+    //   };
+    // }
 
-  console.log("Document written with ID: ", data.id);
-  console.log("returning");
+    console.log("Document written with ID: ", data.id);
+    console.log("returning");
 
-  return {
-    data: data.id,
-  };
-} catch (error: unknown) {
-  console.log("errors have happened");
-  return {
-    //data: null,
-    error: getErrorMessage(error),
-  };
-}
+    return {
+      data: data.id,
+    };
+  } catch (error: unknown) {
+    console.log("errors have happened");
+    return {
+      //data: null,
+      error: getErrorMessage(error),
+    };
+  }
 };

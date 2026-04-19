@@ -33,3 +33,9 @@ declare global {
     }
   }
 }
+
+export type CountryCodeOption = {
+  country: string;
+  iso: string;
+  code: string;
+};

@@ -5,7 +5,7 @@
 
 html {
   --scrollbarBG: #09090b;
-  --thumbBG: #0E4399;
+  --thumbBG: #0e4399;
 
   scrollbar-width: thin;
   scrollbar-color: var(--thumbBG) var(--scrollbarBG);

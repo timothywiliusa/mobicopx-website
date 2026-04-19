@@ -8,6 +8,7 @@ import { sendEmail } from "@/actions/sendEmail";
 import toast, { Toaster } from "react-hot-toast";
 import { FaPaperPlane } from "react-icons/fa";
 import LoadingPulseDot from "./loading-pulse-dot";
+import { priorityCountryCodes, otherCountryCodes } from "@/lib/data";
 
 // Define interest options
 const interestOptions = [
@@ -30,11 +31,11 @@ export default function Contact() {
   // Handle checkbox changes
   const handleInterestChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    setSelectedInterests(prev => {
+    setSelectedInterests((prev) => {
       if (e.target.checked) {
         return [...prev, value];
       } else {
-        return prev.filter(item => item !== value);
+        return prev.filter((item) => item !== value);
       }
     });
   };
@@ -68,14 +69,14 @@ export default function Contact() {
             toast.error("Please select at least one area of interest");
             return;
           }
-          
+
           setIsLoading(true);
           try {
             // Add selected interests to the form data
-            selectedInterests.forEach(interest => {
+            selectedInterests.forEach((interest) => {
               formData.append("interests", interest);
             });
-            
+
             let { data, error } = await sendEmail(formData);
             if (error) {
               console.log(error);
@@ -99,27 +100,6 @@ export default function Contact() {
           placeholder="Name *"
           className="h-14 px-4 rounded-lg borderBlack dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none mb-3"
         />
-        
-        {/* Company Name */}
-        <input
-          name="companyName"
-          type="text"
-          required
-          maxLength={100}
-          placeholder="Company Name *"
-          className="h-14 px-4 rounded-lg borderBlack dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none mb-3"
-        />
-        
-        {/* Industry */}
-        <input
-          name="industry"
-          type="text"
-          required
-          maxLength={100}
-          placeholder="Industry *"
-          className="h-14 px-4 rounded-lg borderBlack dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none mb-3"
-        />
-        
         {/* Email */}
         <input
           name="email"
@@ -129,7 +109,27 @@ export default function Contact() {
           placeholder="Email *"
           className="h-14 px-4 rounded-lg borderBlack dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none mb-3"
         />
-        
+
+        {/* Company Name */}
+        <input
+          name="companyName"
+          type="text"
+          required
+          maxLength={100}
+          placeholder="Company *"
+          className="h-14 px-4 rounded-lg borderBlack dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none mb-3"
+        />
+
+        {/* Industry */}
+        <input
+          name="industry"
+          type="text"
+          // optional={true}
+          maxLength={100}
+          placeholder="Industry (optional)"
+          className="h-14 px-4 rounded-lg borderBlack dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none mb-3"
+        />
+
         {/* Country (optional) */}
         <input
           name="country"
@@ -138,43 +138,68 @@ export default function Contact() {
           placeholder="Country (optional)"
           className="h-14 px-4 rounded-lg borderBlack dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none mb-3"
         />
-        
-        {/* Country Code */}
-        <input
-          name="countryCode"
-          type="text"
-          required
-          maxLength={10}
-          placeholder="Country Code *"
-          className="h-14 px-4 rounded-lg borderBlack dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none mb-3"
-        />
-        
-        {/* Phone Number */}
-        <input
-          name="phoneNumber"
-          type="tel"
-          required
-          maxLength={20}
-          placeholder="Phone Number *"
-          className="h-14 px-4 rounded-lg borderBlack dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none mb-3"
-        />
-        
+
+        {/* Country Code + Phone Number */}
+        <div className="flex gap-2 mb-3">
+          <select
+            name="countryCode"
+            required
+            defaultValue="+1"
+            aria-label="Country code"
+            className="h-14 px-3 rounded-lg borderBlack bg-white dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all outline-none text-gray-900 w-[8.5rem] shrink-0 cursor-pointer"
+          >
+            <optgroup label="Recent">
+              {priorityCountryCodes.map(({ country, iso, code }) => (
+                <option
+                  key={`priority-${iso}-${code}`}
+                  value={code}
+                  title={country}
+                >
+                  {iso} {code}
+                </option>
+              ))}
+            </optgroup>
+            <optgroup label="All countries">
+              {otherCountryCodes.map(({ country, iso, code }) => (
+                <option
+                  key={`other-${iso}-${code}`}
+                  value={code}
+                  title={country}
+                >
+                  {iso} {code}
+                </option>
+              ))}
+            </optgroup>
+          </select>
+
+          <input
+            name="phoneNumber"
+            type="tel"
+            required
+            maxLength={20}
+            placeholder="Phone Number *"
+            className="h-14 px-4 rounded-lg borderBlack dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none flex-1 min-w-0"
+          />
+        </div>
+
         {/* Interest Checkboxes */}
         <div className="mb-4">
-          <p className="text-left mb-2 font-medium text-gray-700 dark:text-white/80">I am interested in * (select at least one)</p>
+          <p className="text-left mb-2 font-medium text-gray-700 dark:text-white/80">
+            I am interested in * (select at least one)
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-left">
             {interestOptions.map((option) => (
               <div key={option} className="flex items-center">
                 <input
                   type="checkbox"
-                  id={option.replace(/\s+/g, '-').toLowerCase()}
+                  id={option.replace(/\s+/g, "-").toLowerCase()}
                   value={option}
                   checked={selectedInterests.includes(option)}
                   onChange={handleInterestChange}
                   className="mr-2 h-4 w-4 cursor-pointer"
                 />
-                <label 
-                  htmlFor={option.replace(/\s+/g, '-').toLowerCase()} 
+                <label
+                  htmlFor={option.replace(/\s+/g, "-").toLowerCase()}
                   className="text-gray-700 dark:text-white/80 cursor-pointer"
                 >
                   {option}
@@ -183,15 +208,15 @@ export default function Contact() {
             ))}
           </div>
         </div>
-        
+
         {/* Comments (optional) */}
         <textarea
           name="comments"
-          maxLength={500}
+          maxLength={1000}
           placeholder="Comments (optional)"
           className="h-40 px-4 py-3 rounded-lg borderBlack dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none mb-6"
         />
-        
+
         <button
           type="submit"
           disabled={isLoading}

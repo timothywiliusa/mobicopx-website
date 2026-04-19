@@ -33,7 +33,7 @@ export default function Project({
       }}
       className="group mb-3 lg:mb-8 last:mb-0"
     >
-      <Link href={href} target="_blank">
+      <Link href={href}>
         <div
           className='
       

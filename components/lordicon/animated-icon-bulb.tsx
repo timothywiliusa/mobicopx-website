@@ -12,7 +12,7 @@ export default function AnimatedFork() {
         src="https://cdn.lordicon.com/zywwafpn.json"
         trigger="hover"
         delay={2000}
-        colors={{ primary: "#455a64", secondary: "#455a64" }}
+        colors={{ primary: "#0E4399", secondary: "#0E4399" }}
         size={40}
         target=".gitHover"
       />
@@ -23,7 +23,7 @@ export default function AnimatedFork() {
         src="https://cdn.lordicon.com/zywwafpn.json"
         trigger="hover"
         delay={2000}
-        colors={{ primary: "#ffffff", secondary: "#ffffff" }}
+        colors={{ primary: "#0E4399", secondary: "#0E4399" }}
         size={40}
         target=".gitHover"
       />

@@ -12,7 +12,7 @@ export default function AnimatedFork() {
         src="https://cdn.lordicon.com/nukjbglx.json"
         trigger="hover"
         delay={2000}
-        colors={{ primary: "#ff0040", secondary: "#ff0040" }}
+        colors={{ primary: "#ffffff", secondary: "#ffffff" }}
         size={35}
         stroke="bold"
       />

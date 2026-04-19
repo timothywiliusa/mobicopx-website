@@ -65,7 +65,7 @@ export default function LightDarkButton() {
   return (
     <>
       <button
-        className="fixed bottom-5 right-5 text-white bg-slate-800 w-[3rem] h-[3rem] bg-opacity-80 backdrop-blur-[0.5rem] border border-white border-opacity-40 shadow-2xl rounded-full flex items-center justify-center hover:scale-[1.15] active:scale-105 transition-all dark:text-yellow-200 dark:bg-blue-800 dark:hover:bg-[#0040ff] dark:bg-opacity-75 dark:hover:text-yellow-100"
+        className="fixed bottom-5 right-5 text-white bg-slate-900 hover:bg-secondary w-[3rem] h-[3rem] bg-opacity-80 backdrop-blur-[0.5rem] border border-white border-opacity-40 shadow-2xl rounded-full flex items-center justify-center hover:scale-[1.15] active:scale-105 transition-all dark:text-yellow-200 dark:bg-blue-800 dark:hover:bg-secondary dark:bg-opacity-75 dark:hover:text-yellow-100"
         onClick={handleClick}
         disabled={isDisabled}
       >
