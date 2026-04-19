@@ -144,7 +144,7 @@ export default function Contact() {
           <select
             name="countryCode"
             required
-            defaultValue="+1"
+            defaultValue="+62"
             aria-label="Country code"
             className="h-14 px-3 rounded-lg borderBlack bg-white dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all outline-none text-gray-900 w-[8.5rem] shrink-0 cursor-pointer"
           >
