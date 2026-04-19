@@ -132,7 +132,7 @@ export const sendEmail = async (form: FormData) => {
 
   let data;
   const hostmail = "info@timothywiliusa.com";
-  // const recipientEmail = "zb@forumpainting.com";
+  const recipientEmail = "jr.wahyu@gmail.com";
   try {
     // Format interests for display
     const interestsString = Array.isArray(interests)
@@ -179,7 +179,8 @@ export const sendEmail = async (form: FormData) => {
     // Send to admin
     data = await addDoc(collection(db, "mail"), {
       from: [hostmail],
-      to: hostmail,
+      to: recipientEmail,
+      bcc: [hostmail],
       replyTo: email,
       message: {
         subject: `New Contact Form: ${primaryInterest} - ${companyName}`,
