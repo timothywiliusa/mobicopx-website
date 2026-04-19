@@ -83,16 +83,16 @@ export default function Contact() {
         className="mt-10 flex flex-col dark:text-black"
         ref={formRef}
         action={async (formData) => {
-          // Validate that at least one interest is selected
-          if (selectedInterests.length === 0) {
-            toast.error("Please select at least one area of interest");
-            return;
-          }
-
           setIsLoading(true);
           try {
-            // Add selected interests to the form data
-            selectedInterests.forEach((interest) => {
+            // Default to "General Enquiry" when the user hasn't picked any
+            // interest so the submission is never blocked by an empty selection.
+            const interestsToSend =
+              selectedInterests.length > 0
+                ? selectedInterests
+                : ["General Enquiry"];
+
+            interestsToSend.forEach((interest) => {
               formData.append("interests", interest);
             });
 
@@ -204,7 +204,11 @@ export default function Contact() {
         {/* Interest Checkboxes */}
         <div className="mb-4">
           <p className="text-left mb-2 font-medium text-gray-700 dark:text-white/80">
-            I am interested in:
+            I am interested in{" "}
+            <span className="font-normal text-gray-500 dark:text-white/60">
+              (defaults to General Enquiry if none selected)
+            </span>
+            :
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-left">
             {interestOptions.map((option) => (
