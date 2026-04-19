@@ -125,9 +125,7 @@ export const sendEmail = async (form: FormData) => {
     };
   }
   if (!interests || interests.length === 0) {
-    return {
-      error: "Please select at least one area of interest",
-    };
+    const interests = ["General Inquiry"];
   }
 
   let data;
@@ -137,7 +135,7 @@ export const sendEmail = async (form: FormData) => {
     // Format interests for display
     const interestsString = Array.isArray(interests)
       ? interests.join(", ")
-      : "None selected";
+      : "General Inquiry";
 
     // Create HTML content for the email
     const htmlContent = `
