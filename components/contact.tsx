@@ -9,6 +9,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { FaPaperPlane } from "react-icons/fa";
 import LoadingPulseDot from "./loading-pulse-dot";
 import { priorityCountryCodes, otherCountryCodes } from "@/lib/data";
+import { BsArrowRight } from "react-icons/bs";
 
 // Define interest options
 const interestOptions = [
@@ -240,10 +241,11 @@ export default function Contact() {
             (process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY as string) || ""
           }
         ></div>
+
         <button
           type="submit"
           disabled={isLoading}
-          className="group flex items-center justify-center gap-2 h-[3rem] w-[8rem] bg-gray-900 text-white rounded-full outline-none transition-all focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105 dark:bg-white dark:bg-opacity-10 disabled:scale-100 disabled:bg-opacity-65 mx-auto"
+          className="group mx-auto min-w-[170px] h-12 w-36 flex items-center justify-center gap-2 rounded-full outline-none transition text-sm bg-gray-900 text-white hover:bg-gray-950 focus:scale-110 hover:scale-110 active:scale-105 dark:bg-zinc-950 dark:text-secondary dark:border-4 dark:border-zinc-950 dark:hover:text-tertiary disabled:scale-100 disabled:bg-opacity-65"
         >
           {isLoading ? (
             <LoadingPulseDot />

@@ -65,11 +65,11 @@ export default function Home() {
       </main>
 
       <motion.div
-        className="fixed top-0 left-0 w-full h-full bg-[#0f1115] z-[10000000000] pointer-events-none"
+        className="fixed top-0 left-0 w-full h-full bg-zinc-900 z-[10000000000] pointer-events-none"
         animate={{ opacity: isLoaded ? 0 : 1 }}
       />
       <motion.div
-        className="fixed top-0 left-0 w-full h-full bg-black z-[10000000001] pointer-events-none"
+        className="fixed top-0 left-0 w-full h-full bg-zinc-950 z-[10000000001] pointer-events-none"
         style={{ clipPath }}
       />
     </div>
