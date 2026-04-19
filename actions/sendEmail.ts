@@ -26,7 +26,60 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 // const resend = new Resend(process.env.RESEND_API_KEY);
+
+// turnstile response type
+type TurnstileResponse = {
+  success: boolean;
+  "error-codes"?: string[];
+  challenge_ts?: string;
+  hostname?: string;
+  action?: string;
+};
+
+// Verify turnstile token
+const verifyTurnstileToken = async (
+  token: string,
+  secretKey: string,
+): Promise<TurnstileResponse> => {
+  const SECRET_KEY = secretKey;
+  const response = await fetch(
+    `https://challenges.cloudflare.com/turnstile/v0/siteverify`,
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        secret: SECRET_KEY,
+        response: token,
+      }),
+    },
+  );
+  return (await response.json()) as TurnstileResponse;
+};
+
 export const sendEmail = async (form: FormData) => {
+  const turnstileToken = form.get("cf-turnstile-response") as string;
+
+  if (!turnstileToken) {
+    return {
+      success: false,
+      error: "Turnstile token is required",
+    };
+  }
+
+  // Verify turnstile token
+  const verification = await verifyTurnstileToken(
+    turnstileToken,
+    (process.env.TURNSTILE_SECRET_KEY as string) || "",
+  );
+
+  if (!verification.success) {
+    return {
+      success: false,
+      error: "Turnstile verification failed",
+      errors: verification["error-codes"],
+    };
+  }
+
   // Get all form fields
   const name = form.get("name");
   const companyName = form.get("companyName");
@@ -79,6 +132,7 @@ export const sendEmail = async (form: FormData) => {
 
   let data;
   const hostmail = "info@timothywiliusa.com";
+  // const recipientEmail = "zb@forumpainting.com";
   try {
     // Format interests for display
     const interestsString = Array.isArray(interests)

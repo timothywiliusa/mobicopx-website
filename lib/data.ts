@@ -200,8 +200,11 @@ export const securitySurveillanceData = [
 // sorted alphabetically by country name.
 export const priorityCountryCodes: CountryCodeOption[] = [
   { country: "Indonesia", iso: "ID", code: "+62" },
-  { country: "Singapore", iso: "SG", code: "+65" },
+  { country: "China", iso: "CN", code: "+86" },
   { country: "United States", iso: "US", code: "+1" },
+  { country: "Germany", iso: "DE", code: "+49" },
+  { country: "Australia", iso: "AU", code: "+61" },
+  { country: "Singapore", iso: "SG", code: "+65" },
 ];
 
 export const otherCountryCodes: CountryCodeOption[] = [
@@ -210,7 +213,6 @@ export const otherCountryCodes: CountryCodeOption[] = [
   { country: "Algeria", iso: "DZ", code: "+213" },
   { country: "Argentina", iso: "AR", code: "+54" },
   { country: "Armenia", iso: "AM", code: "+374" },
-  { country: "Australia", iso: "AU", code: "+61" },
   { country: "Austria", iso: "AT", code: "+43" },
   { country: "Azerbaijan", iso: "AZ", code: "+994" },
   { country: "Bahrain", iso: "BH", code: "+973" },
@@ -225,7 +227,6 @@ export const otherCountryCodes: CountryCodeOption[] = [
   { country: "Canada", iso: "CA", code: "+1" },
   { country: "Cambodia", iso: "KH", code: "+855" },
   { country: "Chile", iso: "CL", code: "+56" },
-  { country: "China", iso: "CN", code: "+86" },
   { country: "Colombia", iso: "CO", code: "+57" },
   { country: "Croatia", iso: "HR", code: "+385" },
   { country: "Cyprus", iso: "CY", code: "+357" },
@@ -239,7 +240,6 @@ export const otherCountryCodes: CountryCodeOption[] = [
   { country: "Finland", iso: "FI", code: "+358" },
   { country: "France", iso: "FR", code: "+33" },
   { country: "Georgia", iso: "GE", code: "+995" },
-  { country: "Germany", iso: "DE", code: "+49" },
   { country: "Ghana", iso: "GH", code: "+233" },
   { country: "Greece", iso: "GR", code: "+30" },
   { country: "Hong Kong", iso: "HK", code: "+852" },

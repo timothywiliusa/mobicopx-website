@@ -40,6 +40,24 @@ export default function Contact() {
     });
   };
 
+  useEffect(() => {
+    // Load the Turnstile script
+    const script = document.createElement("script");
+    script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js";
+    script.async = true;
+    document.head.appendChild(script);
+
+    return () => {
+      // Remove the Turnstile script on unmount
+      const existingScript = document.querySelector(
+        'script[src="https://challenges.cloudflare.com/turnstile/v0/api.js"]',
+      );
+      if (existingScript) {
+        document.head.removeChild(existingScript);
+      }
+    };
+  }, []);
+
   return (
     <motion.section
       id="contact"
@@ -216,7 +234,12 @@ export default function Contact() {
           placeholder="Comments (optional)"
           className="h-40 px-4 py-3 rounded-lg borderBlack dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none mb-6"
         />
-
+        <div
+          className="cf-turnstile mb-4"
+          data-sitekey={
+            (process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY as string) || ""
+          }
+        ></div>
         <button
           type="submit"
           disabled={isLoading}
