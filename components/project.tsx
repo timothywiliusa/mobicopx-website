@@ -56,7 +56,7 @@ export default function Project({
        "
           >
             {/* lg:max-w-[50%] lg:group-even:ml-[18rem] */}
-            <h3 className="text-xl fira-code-regular text-tertiary inline">
+            <h3 className="text-xl fira-code-regular text-gray-950 dark:text-tertiary inline">
               {title}
             </h3>
 

@@ -166,7 +166,7 @@ export default function Contact() {
             aria-label="Country code"
             className="h-14 px-3 rounded-lg borderBlack bg-white dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all outline-none text-gray-900 w-[8.5rem] shrink-0 cursor-pointer"
           >
-            <optgroup label="Recent">
+            <optgroup label="Country Codes">
               {priorityCountryCodes.map(({ country, iso, code }) => (
                 <option
                   key={`priority-${iso}-${code}`}
@@ -177,7 +177,7 @@ export default function Contact() {
                 </option>
               ))}
             </optgroup>
-            <optgroup label="All countries">
+            <optgroup label="----------------">
               {otherCountryCodes.map(({ country, iso, code }) => (
                 <option
                   key={`other-${iso}-${code}`}
@@ -203,7 +203,7 @@ export default function Contact() {
         {/* Interest Checkboxes */}
         <div className="mb-4">
           <p className="text-left mb-2 font-medium text-gray-700 dark:text-white/80">
-            I am interested in * (select at least one)
+            I am interested in:
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-left">
             {interestOptions.map((option) => (

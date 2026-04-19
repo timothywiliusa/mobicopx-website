@@ -66,7 +66,7 @@ export default function Skills() {
         id="technology"
         className=" mb-10 max-w-[53rem] scroll-mt-28 sm:mb-20"
       >
-      <SectionHeading>Technology</SectionHeading>
+        <SectionHeading>Technology</SectionHeading>
 
         {/* <div className="mb-7 grid items-center">
           <div>
@@ -146,15 +146,15 @@ export default function Skills() {
         </motion.div> */}
         <div className="mb-7 grid  items-center">
           <div>
-            <p className="inline text-2xl font-medium fira-code-regular text-[#0040ff]">
+            <p className="inline text-2xl font-medium fira-code-regular dark:text-[#0040ff]">
               Traffic Management System
             </p>
           </div>
         </div>
         <ul className="flex flex-wrap gap-2 text-lg text-gray-800 mb-16">
           {trafficManagementData.map((trafficManagement, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="relative"
               onMouseEnter={() => handleStackHover(index)}
               onMouseLeave={() => setExpandedStack(null)}
@@ -168,7 +168,7 @@ export default function Skills() {
                 }}
                 custom={index}
                 onClick={() => toggleStackExpand(index)}
-                className="bg-white border borderBlack rounded-md pl-5 pr-6 py-3 text-base dark:bg-white/10 dark:text-gray-100 flex gap-2 items-center cursor-pointer hover:bg-gray-50 dark:hover:bg-white/20 transition-colors"
+                className="bg-white border borderBlack rounded-md pl-5 pr-6 py-3 text-base dark:bg-white/10 dark:text-gray-100 dark:hover:bg-gray-800 dark:hover:text-blue-500 flex gap-2 items-center cursor-pointer hover:bg-gray-50 dark:hover:bg-white/20 transition-colors"
               >
                 <span className="text-xl">{trafficManagement.icon}</span>
                 {trafficManagement.title}
@@ -181,9 +181,9 @@ export default function Skills() {
                   transition={{ duration: 0.1 }}
                   className="bg-white dark:bg-gray-800 p-3 rounded-md mt-1 shadow-md text-sm border border-gray-200 dark:border-gray-700 max-w-[300px] z-10 absolute"
                 >
-                  <a rel="noopener noreferrer" className="text-blue-500 hover:underline">
+                  <div className="dark:text-blue-500">
                     {trafficManagement.description}
-                  </a>
+                  </div>
                 </motion.div>
               )}
             </div>
@@ -191,15 +191,15 @@ export default function Skills() {
         </ul>
         <div className="mb-7 grid  items-center">
           <div>
-            <p className="inline text-2xl font-medium fira-code-regular text-[#0040ff]">
+            <p className="inline text-2xl font-medium fira-code-regular dark:text-[#0040ff]">
               Security & Surveillance
             </p>
           </div>
         </div>
         <ul className="flex flex-wrap gap-2 text-lg text-gray-800">
           {securitySurveillanceData.map((securitySurveillance, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="relative"
               onMouseEnter={() => handleTechHover(index)}
               onMouseLeave={() => setExpandedTech(null)}
@@ -213,7 +213,7 @@ export default function Skills() {
                 }}
                 custom={index}
                 onClick={() => toggleTechExpand(index)}
-                className="bg-white border borderBlack rounded-md pl-5 pr-6 py-3 text-base dark:bg-white/10 dark:text-gray-100 flex gap-2 items-center cursor-pointer hover:bg-gray-50 dark:hover:bg-white/20 transition-colors"
+                className="bg-white border borderBlack rounded-md pl-5 pr-6 py-3 text-base dark:bg-white/10 dark:text-gray-100 flex gap-2 items-center cursor-pointer hover:bg-gray-50 dark:hover:bg-white/20 transition-colors dark:hover:bg-gray-800 dark:hover:text-blue-500"
               >
                 <span className="text-xl">{securitySurveillance.icon}</span>
                 {securitySurveillance.title}
@@ -226,9 +226,9 @@ export default function Skills() {
                   transition={{ duration: 0.1 }}
                   className="bg-white dark:bg-gray-800 p-3 rounded-md mt-1 shadow-md text-sm border border-gray-200 dark:border-gray-700 max-w-[300px] z-10 absolute"
                 >
-                  <a rel="noopener noreferrer" className="text-blue-500 hover:underline">
+                  <div rel="noopener noreferrer" className="dark:text-blue-500">
                     {securitySurveillance.description}
-                  </a>
+                  </div>
                 </motion.div>
               )}
             </div>
